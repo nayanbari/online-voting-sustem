@@ -1,0 +1,23 @@
+.sign_up_options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.sign_up_options .option{
+    padding: 1rem;
+    margin: 0 2rem;
+    border-radius: 10px;
+    transition: all .3s ease-out;
+}
+
+.sign_up_options .option img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.sign_up_options .option:hover{
+    box-shadow: 4px 8px 14px rgba(152, 193, 255, 0.25);
+}
