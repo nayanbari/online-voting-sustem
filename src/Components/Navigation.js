@@ -9,11 +9,11 @@ const Navigation = () => {
                 <img src={Logo} alt="vote india" />
             </div>
             <div className="links">
-                <Link style={{textDecoration: 'none'}} to='/elections'>
+                <Link style={{textDecoration: 'none'}} to='/'>
                     <h3>Elections</h3>
                 </Link>
-                <Link style={{textDecoration: 'none'}} to='/result'>
-                    <h3>Result</h3>
+                <Link style={{textDecoration: 'none'}} to='/login'>
+                    <h3>Login</h3>
                 </Link>
             </div>
         </nav>

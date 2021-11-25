@@ -43,7 +43,7 @@ const SignUpForm = () => {
                     <input type="password" onChange={InputP} className="input" id="password" placeholder="********" />
                 </div>
                 <div className="query">
-                    <p className="account">Don’t have account?<span> Sign Up </span>now </p>
+                    <p className="account">Don’t have account?<span><Link style={{textDecoration: 'none', color: '#006BFB'}} to='/register'> Sign Up </Link></span>now </p>
                     <p className="forgot_password">Forgot Password?</p>
                 </div>
                 <div className="btn_container">
