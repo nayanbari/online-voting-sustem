@@ -4,26 +4,42 @@ import {Link} from 'react-router-dom'
 import { useState} from 'react'
 
 const SignUpForm = () => {
-    const [routeStatus, setRouteStatus] = useState('/')
-    const aadhar = 123456789123
-    const pass = 'Nayan@123'
-    const [aadharInput, setAadharInput] = useState(); 
-    const [passInput, setPassInput] = useState(); 
-    const InputA = (e) => {
-        setAadharInput(e.target.value)
-    }
-    const InputP = (e) => {
-        setPassInput(e.target.value)
-    }
-    const redirect = (e) => {
-        if(aadhar === aadharInput && pass === passInput){
-            setRouteStatus('/elections')
-            console.log(routeStatus)
+    const [routeStatus, setRouteStatus] = useState('/');
+
+    const [user, setUser] = useState({
+        uid:"", pass:"" 
+    });
+    
+    let name, value;
+    const Input = (e) => {
+    console.log(e);
+    name = e.target.name;
+    value = e.target.value;
+
+    setUser({...user, [name]:value});}
+
+    const SendData = async (e) => {
+        e.preventDefault();
+
+        const{uid, pass} = user;
+
+        const res = await fetch("/login", {method:"POST", headers:{"Content-Type" : "application/json"}, 
+        body:JSON.stringify({
+            uid, pass
+        })
+        });
+
+        const data = await res.json();
+        if(res.status === 400 || !data){
+            window.alert ("Login Failed");
+            console.log("Login failed 110");
+            setRouteStatus('/signin');
+        }else{
+            window.alert ("Login Successful");
+            console.log("Login Successful");
+            setRouteStatus('/');
         }
-        else {
-            setRouteStatus('/')
-            console.log(routeStatus)
-        }
+
     }
 
     return (
@@ -34,22 +50,28 @@ const SignUpForm = () => {
                 <div className="line"></div>
                 <p>Or sign in with aadhar</p>
             </div>
-            <form>
+            <form method='POST' >
                 <div className="input_container">
                     <label htmlFor="Number">Aadhar Card Number</label>
-                    <input type="number" onChange={InputA} className="input" id="aadhar_card_number" placeholder="4444 4444 4444" />
+                    <input type="number" onChange={Input} className="input" id="uid" placeholder="4444 4444 4444" 
+                    value={user.uid} name="uid" />
                 </div>
                 <div className="input_container">
                     <label htmlFor="Password">Password</label>
-                    <input type="password" onChange={InputP} className="input" id="password" placeholder="********" />
+                    <input type="password" onChange={Input} className="input" id="pass" placeholder="********"
+                    value={user.pass} name="pass" />
                 </div>
                 <div className="query">
                     <p className="account">Don’t have account?<span><Link style={{textDecoration: 'none', color: '#006BFB'}} to='/signup'> Sign Up </Link></span>now </p>
                     <p className="forgot_password">Forgot Password?</p>
                 </div>
                 <div className="btn_container">
-                    <button onClick={redirect} className="btn">
-                        <Link style={{textDecoration: 'none', color: '#fff'}} to={routeStatus}>
+                    <button 
+                    onClick={SendData}
+                     className="btn">
+                        <Link style={{textDecoration: 'none', color: '#fff'}} 
+                        to={routeStatus}
+                        >
                             <h4>Sign In</h4>
                         </Link>
                     </button>

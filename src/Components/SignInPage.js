@@ -5,6 +5,7 @@ import '../Styles/sign_in_form.css';
 
 const SignInPage = () => {
     
+    const [routeStatus, setRouteStatus] = useState('/')
     // let history = useHistory();
 
     const [user, setUser] = useState({
@@ -31,12 +32,14 @@ const SignInPage = () => {
         });
 
         const data = await res.json();
-        if(data.status === 422 || !data){
+        if(res.status === 422 || !data){
             window.alert ("Regisrtration Failed");
             console.log("Registration failed 110");
+            setRouteStatus('/signup');
         }else{
             window.alert ("Regisrtration Successful");
             console.log("Registration Successful");
+            setRouteStatus('/signin');
             // history.push("/signin");
         }
 
@@ -87,7 +90,7 @@ const SignInPage = () => {
                 
                 <div className="btn_container">
                     <button className="btn" onClick={SendData}>
-                        <Link style={{textDecoration: 'none', color: '#fff'}} to='/signin'>
+                        <Link style={{textDecoration: 'none', color: '#fff'}} to={routeStatus} > 
                             <h4>Sign Up</h4>
                         </Link>
                     </button>

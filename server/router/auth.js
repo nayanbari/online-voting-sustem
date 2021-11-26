@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
@@ -38,6 +39,7 @@ router.post('/register', async (req,res) => {
 
 router.post('/login', async (req, res) => {
     try{
+        let token;
         const {uid, pass} = req.body;
 
         if(!uid || !pass){
@@ -49,13 +51,19 @@ router.post('/login', async (req, res) => {
 
         if(userLogin){
         const isMatch = await bcrypt.compare(pass, userLogin.pass);
-
+        token = await userLogin.generateAuthToken();
+        console.log(token);
+        res.cookie("JWTtoken", token, {
+            expires: new Date(Date.now() + 25892000000),
+            httpOnly:true
+        });
         if(!isMatch){
             res.status(400).json({error:"user login unsuccesful"});
         }else{
             res.json({message:"user login succesful"});
         }}else{
             res.status(400).json({error:"user login unsuccesful"});
+            // console.log("4001");
         }
         
 
