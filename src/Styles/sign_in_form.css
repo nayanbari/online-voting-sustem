@@ -1,0 +1,86 @@
+.form{
+
+}
+
+.form h2 {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.form .two_container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+
+
+.form form{
+    margin: 2rem auto;
+    width: 60%;
+}
+
+.form form .input_container{
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form form .input_container label{
+    padding-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.form form .input_container input{
+    padding: 1rem;
+    outline: none;
+    border: none;
+    box-shadow: 4px 8px 14px rgba(152, 193, 255, 0.25);
+    border-radius: 10px;
+    color: #C1B7A9;
+}
+
+.form form .query{
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form form .query .account{
+    color: #524A50;
+}
+
+.form form .query .account span{
+    color: #006BFB;
+}
+
+.form form .query .forgot_password{
+    color: #FB0000;
+}
+
+.form form .btn_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.form form .btn_container .btn{
+    font-size: 1rem;
+    color: #fff;
+    background-color: #030305;
+    padding: .5rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    transition: all .3s ease-out;
+}
+
+.form form .btn_container .btn:hover{
+    box-shadow: 4px 8px 14px rgba(33, 33, 33, 0.25);
+    transform: scale(1.1);
+}
