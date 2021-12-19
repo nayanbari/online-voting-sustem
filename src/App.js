@@ -5,6 +5,7 @@ import VotePage from './Components/VotePage';
 
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import SignInPage from './Components/SignInPage';
+import Result from './Components/Result';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Route path='/login' exact element={<SignUpPage/>} />
       <Route path='/register' exact element={<SignInPage/>} />
       <Route path='/vote/:id' exact element={<VotePage/>} />
+      <Route path='/result' exact element={<Result/>} />
       </Routes>
     </>
     </Router>

@@ -9,7 +9,7 @@ const ElectionsCards = () => {
             id: 1,
             title: 'Pune',
             type: 'General Election',
-            date: '12/12/2021',
+            date: '19/12/2021',
             numberOfCandidates: 7,
             candidates: ['nayan', 'hemant', 'akash', 'pooja', 'nikhil', 'anurag', 'nayja']
         },
@@ -25,7 +25,7 @@ const ElectionsCards = () => {
             id: 3,
             title: 'Mumbai',
             type: 'General Election',
-            date: '22/11/2021',
+            date: '25/01/2021',
             numberOfCandidates: 5,
             candidates: ['nayan', 'hemant', 'akash', 'pooja', 'nikhil']
         },

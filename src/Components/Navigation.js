@@ -15,6 +15,9 @@ const Navigation = () => {
                 <Link style={{textDecoration: 'none'}} to='/login'>
                     <h3>Login</h3>
                 </Link>
+                <Link style={{textDecoration: 'none'}} to='/result'>
+                    <h3>Result</h3>
+                </Link>
             </div>
         </nav>
     )
