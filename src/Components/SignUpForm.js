@@ -1,10 +1,10 @@
 import SignUpOptions from "./SignUpOptions"
 import '../Styles/sign_up_form.css'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import { useState} from 'react'
 
 const SignUpForm = () => {
-    const [routeStatus, setRouteStatus] = useState('/');
+    let navigate = useNavigate();
 
     const [user, setUser] = useState({
         uid:"", pass:"" 
@@ -31,13 +31,13 @@ const SignUpForm = () => {
 
         const data = await res.json();
         if(res.status === 400 || !data){
-            window.alert ("Login Failed");
-            console.log("Login failed 110");
-            setRouteStatus('/signin');
+            window.alert ("Invalid Credentials!");
+            console.log("Invalid Credentials!");
+            navigate("/signin");
         }else{
+            navigate("/");
             window.alert ("Login Successful");
             console.log("Login Successful");
-            setRouteStatus('/');
         }
 
     }
@@ -70,7 +70,7 @@ const SignUpForm = () => {
                     onClick={SendData}
                      className="btn">
                         <Link style={{textDecoration: 'none', color: '#fff'}} 
-                        to={routeStatus}
+                        to={SendData}
                         >
                             <h4>Sign In</h4>
                         </Link>

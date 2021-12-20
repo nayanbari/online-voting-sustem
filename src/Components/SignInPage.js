@@ -1,12 +1,9 @@
-import {Link} from 'react-router-dom';
-// import { useHistory } from "react-router-dom";
+import {Link, useNavigate} from 'react-router-dom';
 import { useState} from 'react';
 import '../Styles/sign_in_form.css';
 
 const SignInPage = () => {
-    
-    const [routeStatus, setRouteStatus] = useState('/')
-    // let history = useHistory();
+    let navigate = useNavigate();
 
     const [user, setUser] = useState({
         name:"", email:"", phone:"", uid:"", pass:"", cpass:"" 
@@ -32,15 +29,30 @@ const SignInPage = () => {
         });
 
         const data = await res.json();
-        if(res.status === 422 || !data){
+        if(!data){
             window.alert ("Regisrtration Failed");
-            console.log("Registration failed 110");
-            setRouteStatus('/signup');
+            console.log("Registration failed");
+            navigate("/signup");
+        }else if(res.status === 420){
+            window.alert ("Enter all details");
+            console.log("Enter all details");
+            navigate("/signup");
+        }else if(res.status === 421){
+            window.alert ("User already exists");
+            console.log("User already exists");
+            navigate("/signup");
+        }else if(res.status === 422){
+            window.alert ("Passwords are not matching");
+            console.log("Passwords are not matching");
+            navigate("/signup");
+        }else if(res.status === 423){
+            window.alert ("Password >= 6 characters, Aadhar no. = 12 digits, Phone no. = 10 digits, valid email id");
+            console.log("Password >= 6 characters, Aadhar no. = 12 digits, Phone no. = 10 digits, valid email id");
+            navigate("/signup");
         }else{
             window.alert ("Regisrtration Successful");
             console.log("Registration Successful");
-            setRouteStatus('/signin');
-            // history.push("/signin");
+            navigate("/signin");
         }
 
     }
@@ -90,7 +102,7 @@ const SignInPage = () => {
                 
                 <div className="btn_container">
                     <button className="btn" onClick={SendData}>
-                        <Link style={{textDecoration: 'none', color: '#fff'}} to={routeStatus} > 
+                        <Link style={{textDecoration: 'none', color: '#fff'}} to={SendData}> 
                             <h4>Sign Up</h4>
                         </Link>
                     </button>

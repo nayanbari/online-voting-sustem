@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
     cpass:{
         type:String, required:true
     },
+    voted:{
+        type:Number, required:true
+    },
     tokens:[
         {
             token: {

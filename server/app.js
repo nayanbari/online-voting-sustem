@@ -1,5 +1,8 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
+app.use(cookieParser());
+const authenticate = require('./middleware/authenticate');
 
 // const dotenv = require("dotenv");
 // dotenv.config({path:'./config.env'});
@@ -7,8 +10,12 @@ const app = express();
 
 app.use(express.json());
 app.use(require('./router/auth'));
-const PORT = process.env.PORT;
 
 app.listen(4000, ()=>{
     console.log('server is running at port 4000');
+});
+
+app.get('/vote/:id', authenticate, (req,res) => {
+    // console.log("Hello v1oter");
+    res.send(req.rootUser);
 });

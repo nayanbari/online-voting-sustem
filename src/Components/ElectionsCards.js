@@ -3,13 +3,13 @@ import { useState} from 'react'
 import {Link} from 'react-router-dom'
 
 const ElectionsCards = () => {
-    const [routeStatus, setRouteStatus] = useState('/elections')
+    const [routeStatus, setRouteStatus] = useState('/')
     const [ data] = useState([
         {
             id: 1,
             title: 'Pune',
             type: 'General Election',
-            date: '25/11/2021',
+            date: '20/12/2021',
             numberOfCandidates: 7,
             candidates: ['nayan', 'hemant', 'akash', 'pooja', 'nikhil', 'anurag', 'nayja']
         },
@@ -17,7 +17,7 @@ const ElectionsCards = () => {
             id: 2,
             title: 'Jalgaon',
             type: 'General Election',
-            date: '31/12/2022',
+            date: '27/11/2021',
             numberOfCandidates: 2,
             candidates: ['nayan', 'hemant']
         },
@@ -25,7 +25,7 @@ const ElectionsCards = () => {
             id: 3,
             title: 'Mumbai',
             type: 'General Election',
-            date: '22/11/2021',
+            date: '9/12/2021',
             numberOfCandidates: 5,
             candidates: ['nayan', 'hemant', 'akash', 'pooja', 'nikhil']
         },
