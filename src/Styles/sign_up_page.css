@@ -1,0 +1,25 @@
+.signup_form{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup_form .left_side{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+}
+.signup_form .left_side img{
+    height: 60%;
+    object-fit: contain;
+}
+
+.signup_form .right_side{
+    width: 50%;
+}

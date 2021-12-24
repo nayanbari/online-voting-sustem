@@ -1,0 +1,26 @@
+.result{
+    margin: 5rem;
+}
+
+.result .list {
+    margin: 3rem 0;
+    list-style: none;
+    width: 100%;
+}
+
+.result .list .row{
+    display: flex;
+    padding: 1rem 0;
+}
+
+.result .list .row .sr-no{
+    width: 15%;
+}
+
+.result .list .row .name{
+    width: 45%
+}
+
+.result .list .row .vote-gain{
+    width: 20%;
+}
